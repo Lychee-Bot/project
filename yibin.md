@@ -16,6 +16,9 @@ We then come up with a modifeid solution to use ```actionlib``` package: conside
 4. Repeat step 2 and step 3 untill turtlebot reaches goal location.
 
 We test our approach first by running ```rosrun map_server map_saver``` to create a layour map (pgm image), and then modify the map with image editing tools to add walls (black region in the map). Second, we run the 
+<iframe width="420" height="315"
+src="https://www.youtube.com/watch?v=dFASI4f0Gi0&feature=youtu.be">
+</iframe>
 
 
 ### Approach 2: Master Plannar
