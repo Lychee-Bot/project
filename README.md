@@ -66,6 +66,8 @@ Key Facts about the MDP and model:
 1. num_states: 81
 2. Transitions allowed: allow_diagonal_transitions = true; num_actions = 8; up = 1; down = 2; left = 3; right = 4; up_left = 5; down_left = 6; up_right = 7; down_right = 8
 3. Goal and end state got from discretization of the data
+4. Max path length: 15
+5. Discount factor 0.9
 
 ## Trajectory Planning
 
