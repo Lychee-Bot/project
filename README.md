@@ -99,6 +99,10 @@ Key Facts about the MDP and model:
 
 ### Initial Attempts
 
+A naïve way of planning a trajectory while moving obstacles are present is to treat their entire trajectories as an impassable static obstacle. Although this method is straightforward and reaches a solution (if any) quickly using existing motion planners, it oversimplifies the problem and is likely to reach only a suboptimal solution, if one is possible at all. Consider this scenario: our human travels from the Northwest corner of the room to the Southeast corner, while our TurtleBot tries to reach the Northeast corner from the Southwest corner. No matter how slowly or quickly our human travels, our TurtleBot will stay at its origin because it cannot find a solution using this naïve method.
+
+We learned another way to simplify this problem in a 1986 paper by Kamal Kant and Steven W. Zucker. In this paper, the authors proposed to divide the trajectory-planning problem as two subproblems: an independent path-planning problem and a velocity-planning problem depending on the result of the first problem. Firstly, a path is to be planned considering only static obstacles. Once a path is found, it remains unchanged when solving the velocity-planning problem. One can see the velocity-planning problem as "dragging a progress bar" with respect to time so as to prevent the TurtleBot (whose position is set when the progress bar is dragged to a particular percentage) from colliding with human. This method, despite its simplicity, cannot give us a dynamic path. It is wasteful if our TurtleBot does not make use of all the space in the room, so only a suboptimal solution can be found with this approach, too.
+
 ### Update Loop
 
 To accommodate for potential changes in human motion prediction, trajectories are planned by solving an optimization problem as prediction updates.
