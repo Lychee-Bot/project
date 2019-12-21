@@ -28,8 +28,7 @@ Here are a few observations from the data:
 - You can also notice how there was some hesitance on who was going to move out of whose way at around 1.3 seconds, but ultimately they deviated away from each other before the collision which occured at 1.6 seconds as seen in the graph below.
 
 
-![Image](https://github.com/Lychee-Bot/project/blob/master/img2.png)	![Image](https://github.com/Lychee-Bot/project/blob/master/img2.png)
-
+![Image](https://github.com/Lychee-Bot/project/blob/master/img2.png)	
 
 ## Human Model
 
