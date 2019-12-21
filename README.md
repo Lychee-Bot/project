@@ -13,7 +13,7 @@ For the planning component, we created a constraint optimization based planner. 
 
 
 ## Motivation
-- Navigating in a dynamic urban environment is hard. 
+- Navigating in a dynamic urban environment is hard!
 - Moving around humans is challenging since the motion is non-deterministic and human’s goal is unknown.
 - Goal: Research and experiment with methods to infer human motion behavior and navigate around humans. 
 - Real-time motion planning around humans: active research area.
@@ -30,7 +30,7 @@ We wanted our data collection to be hollistic so that it would provide us with a
 [Description of different paths](https://github.com/Lychee-Bot/project/blob/master/Project%20Idea.pdf)
 
 Collecting this data was essential in the human modelling and to accomplish this we used the optitrack system. There were several challenges with data collection though the primary ones being:
-1. We had to learn how to create rigid bodies and add them to the optitrack system
+1. We had to learn how to create rigid bodies (of the caps that were used to track the particpants) and add them to the optitrack system
 2. Formatting and null values of the data - the data provided was extremely poorly formatted and to automate graph generations we had to build a pipeline to clean (remove null values or fill wherever possible!)
 
 ### add videos and pictures^^^
@@ -53,6 +53,8 @@ Here are a few observations from the data:
 
 We read various papers on human motion modelling and we experimented with the approach that our mentor Dexter Scobee had described in the paper [Maximum Likelihood Constraint Inference for Inverse Reinforcement Learning (D.Scobee, S. Shastry)](https://arxiv.org/abs/1909.05477).  This paper reformulates the Inverse Reinforcement Learning problem to describe the observed behavior with a simple reward and a set of hard constraints. 
 We used this paper and Dexter's repository to identify constraints for moving humans. 
+
+Another approach that we read about what social spheres also known as proxemics. In this area of research the leading school of thought is that humans maintain a relatively fixed set of distances when navigating through urban environments. Even though this set of distances is unique to humans, research has shown a general trend in that these proxemics are usually ellipsoids. This is somewhat consistent with our analysis of how humans move where we found that people tended to maintain a longer vertical distance than a horizaontal one. Ultimately we didnt decide to go down this approach as we didnt have enough data samples, especially un-tainted ones (not from a lab setting) to create such a generalization and it would be extremely complicated to do so. 
 
 In the input example we used, when two humans start by facing each other, and move across to the other side, they are close to each other towards the middle of the room. The other human's position near the potential head on collision time is a constraint that we want this IRL constraint inference model to identify. 
 
