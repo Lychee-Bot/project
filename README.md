@@ -187,6 +187,11 @@ Setting up the rigid bodies, allows the optitrack system to automatically broadc
 ### Localization
 We leverage the Optitrack system to do the localization for TurtleBot and pedestrian. The TurtleBot will have markers on the top, and pedestrain will wear a cap with markers attach to it. Once the system finds TurtleBot and the cap (pedestrain), it automatically broadcasts the location data to the same network. Note that right now TurtleBot, instead of the Ros Computer,  receives the localization data so the previous ```mocap_optitrack``` package doesn't work on the TurtleBot. We searched online and found a nice ROS package for receiving such message on TurtleBot: ```vrpn_client```. Leveraging ```vrpn_client``` package we were able to receive the location message by simply subscribing to ```/vrpn_client_node/turtlebot/pose``` and ```/vrpn_client_node/cap/pose```. The returned message is a [PoseStamped](http://docs.ros.org/melodic/api/geometry_msgs/html/msg/PoseStamped.html) type of message. [**insert image here**]
 
+## Controller
+Theoretically, the Turtlebot controller will receive path command from master server and execute the command. We simplified command to three different modules: go straight, turn, and curve left/right. 
+
+We search online but found out that no one had implemented this kind of controller yet. Therefore, we build our own. Each module has its own implementation on two or three control variables. For example, in the go straight function we can control both the distance and speed turtlebot needs to travel as well as the time and speed. This gives great flexibility on what we want Turtlebot to do. We have tested this controller in the real world and it works perfectly.
+
 ## Challenges
 1. Turtlebot access in mocap room only three days before!!! This hindered us from implementing the design that we had orginally forseen at the beginning of the project. Primarily not being able to connect the optimized path planning to the  bots.
 2. Existing path planning package doesn’t work with Optitrack system
