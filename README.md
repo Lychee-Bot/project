@@ -38,6 +38,13 @@ We used this paper and Dexter's repository to identify constraints for moving hu
 
 In the input example we used, when two humans start by facing each other, and move across to the other side, they are close to each other towards the middle of the room. The other human's position near the potential head on collision time is a constraint that we want this IRL constraint inference model to identify. 
 
+## Trajectory Planning
+
+
+## Challenges
+
+## Future Work
+
 
 ### Header 3
 
