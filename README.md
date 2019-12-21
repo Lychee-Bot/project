@@ -4,9 +4,9 @@
 
 ## Overview:
 
-Autonomous navigation in an environment with humans is challenging but can be highly useful for applications such as food delivery (like our inspiration Kiwi bot) and navigating in homes or offices. Our research project focused on modelling human-human interaction and robotic autonomous navigation amongst humans.
+Autonomous navigation in an environment with humans is challenging but can be highly useful for applications such as food delivery (like our inspiration Kiwi bot) and navigating in homes or offices. Our research project focused on modelling human-human interaction and robotic autonomous navigation among humans.
 
-Navigating amongst humans is challenging primarily because of the difficulty in predicting human motion and their interactions with others. For an external agent such as a robot that does not know the goal state of the human or other prior context, it is even more challenging to predict human motion, and navigate around them to reach the goal. We aimed to experiment with various approaches and create a prototype to achieve this goal. 
+Navigating among humans is challenging primarily because of the difficulty in predicting human motion and their interactions with others. For an external agent such as a robot that does not know the goal state of the human or other prior context, it is even more challenging to predict human motion, and navigate around them to reach the goal. We aimed to experiment with various approaches and create a prototype to achieve this goal. 
 
 This research project has three main parts: human modeling, path planning and robot control. For modelling the human-human interaction, we analyze the takes we recorded in the Cory motion capture room to infer patterns, and apply the Maximum Likelihood Constraint Inference for Inverse Reinforcement Learning paper to determine constraints in human interaction. We also developed and experimented with an MCMC based approach to predict human motion. 
 For the planning component, we created a constraint optimization based planner. Finally, we developed a controller for the Turtlebot to navigate around obstacles detected by the OptiTrack motion capture system. 
@@ -34,11 +34,11 @@ We decided to use the OptiTrack motion capture system rather than use computer v
 4. Create a controller to receive commands from a master algorithm and actuate.
 
 ## Data Collection
-We wanted our data collection to be hollistic so that it would provide us with a good overview of how humans navigated around obstacles. Thats why we did 6 different collisions with different subjects and multiple trials. 
+We wanted our data collection to be holistic so that it would provide us with a good overview of how humans navigated around obstacles. Thats why we did 6 different collisions with different subjects and multiple trials. 
 [Description of different paths](https://github.com/Lychee-Bot/project/blob/master/Project%20Idea.pdf)
 
 Collecting this data was essential in the human modelling and to accomplish this we used the optitrack system. There were several challenges with data collection though the primary ones being:
-1. We had to learn how to create rigid bodies (of the caps that were used to track the particpants) and add them to the optitrack system
+1. We had to learn how to create rigid bodies (of the caps that were used to track the particpants) and add them to the optitrack system.
 2. Formatting and null values of the data - the data provided was extremely poorly formatted and to automate graph generations we had to build a pipeline to clean (remove null values or fill wherever possible!)
 
 ### add videos and pictures^^^
