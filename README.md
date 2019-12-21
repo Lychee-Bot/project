@@ -6,12 +6,12 @@
 1. Overview and motivation
 2. Research Goals
 3. Design
-4. Optitrack System
-5. Data Collection
-6. Analysis of human motion
-7. Trajectory Planning
-8. Actuation
-9. Challenges and Feature Work
+4. Data Collection
+5. Analysis of human motion
+6. Trajectory Planning
+7. Actuation
+8. Challenges
+9. Feature Work
 10. Reference
 11. Team
 
@@ -42,7 +42,9 @@ Since the goal is to make a robot navigate to its goal around humans and our res
 
 We decided to use the OptiTrack motion capture system rather than use computer vision to detect humans and other obstacles to get more accurate object positions and  a comprehensive map. Initially, we had used the Turtlebots’ Kinect sensor to detect and avoid obstacles but we quickly realized that it would an ineffective way to address the primary research questions (since it needs to move around to generate the map, account for errors, detect occluded humans). 
 
-## Optitrack Motion Capture System
+## Data Collection 
+
+### Optitrack Motion Capture System
 The [Optitrack System](https://optitrack.com/) [**pictures of the optitrack room**] is an advanced motion capture system. It utilizes an infrared camera to localize the objects by tracking the special IR-reflective markers. It is a high-accuracy and low-latency system that fits our project's needs. 
 
 Before we could begun the localization, we had to 
@@ -51,7 +53,7 @@ Before we could begun the localization, we had to
 
 Setting up the rigid bodies, allows the optitrack system to automatically broadcast the location of the objects to the network. We used the ```mocap_optitrack``` pacakge to receive the data.
 
-## Data Collection
+### Process
 We wanted our data collection to be holistic so that it would provide us with a good overview of how humans navigated around obstacles. Thats why we did 6 different collisions with different subjects and multiple trials. 
 [Description of different paths](https://github.com/Lychee-Bot/project/blob/master/Project%20Idea.pdf)
 
@@ -189,14 +191,14 @@ Theoretically, the Turtlebot controller will receive path command from master se
 
 We search online but found out that no one had implemented this kind of controller yet. Therefore, we build our own. Each module has its own implementation on two or three control variables. For example, in the go straight function we can control both the distance and speed turtlebot needs to travel as well as the time and speed. This gives great flexibility on what we want Turtlebot to do. We have tested this controller in the real world and it works perfectly.
 
-## Challenges and Feature Work
+## Challenges
 1. Turtlebot access in mocap room only three days before!!! This hindered us from implementing the design that we had orginally forseen at the beginning of the project. Primarily not being able to connect the optimized path planning to the  bots.
 2. Existing path planning package doesn’t work with Optitrack system
 3. Optitrack and turtlebot Odometry system has two different coordinates
 4. ROS_MASTER_URI conflict between turtlebot and optitrack
 5. No way besides SLAM to update the map and do path planning efficiently
 
-### Future Work
+## Future Work
 1. Research in smoothing the path (move in curves)
 2. Perform online multi-human motion prediction and add to Turtlebot.
 3. Add Computer Vision based planner. Test it on Berkeley Campus. 
