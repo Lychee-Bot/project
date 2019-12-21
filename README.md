@@ -23,7 +23,10 @@ For the planning component, we created a constraint optimization based planner. 
 4. Create a controller to receive commands from a master algorithm and actuate.
 
 ## Data Collection
-We wanted our data collection to be hollistic so that it would provide us with a good overview of how humans navigated around obstacles. Thats why we did 6 different collisions with different subjects and multiple trials. Collecting this data was essential to understanding the human modelling and we had to use the optitrack system in the lab to collect the data.
+We wanted our data collection to be hollistic so that it would provide us with a good overview of how humans navigated around obstacles. Thats why we did 6 different collisions with different subjects and multiple trials. 
+[Description of our paths](https://github.com/Lychee-Bot/project/blob/master/Project%20Idea.pdf)
+
+Collecting this data was essential to understanding the human modelling and we had to use the optitrack system in the lab to collect the data.
 
 There were several challenges with data collection though the primary ones being:
 1. We had to learn how to create rigid bodies and add them to the optitrack system
