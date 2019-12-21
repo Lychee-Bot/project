@@ -210,8 +210,6 @@ We search online but found out that no one had implemented this kind of controll
 [Optitrack System](https://optitrack.com/)
 
 ## Team 
-Mentors: Dextor Scobee, David McPherson
-
 Name - Bio - what you did in the project - Favorite robot
 1. Ganeshkumar Ashokavardhanan: Worked on human modelling, motion data analysis and the initial TurtleBot ROS controller. EECS & Business 2021. Favorite robot: [Spot](https://www.bostondynamics.com/spot)
 2. Shivam Shorewala: Worked on the human modelling side of things, ranging from data collection, to creating MDPs to speed analysis. EECS and Business 2021. Favourite robot [Mr.Robot](https://www.usanetwork.com/mrrobot)
