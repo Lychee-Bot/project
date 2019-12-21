@@ -16,7 +16,9 @@
 4. Create a controller to receive commands from a master algorithm and actuate.
 
 ## Data Collection
-We wanted our data collection to be hollistic so that it would provide us with a good overview of how humans navigated around obstacles. Thats why we did 6 different collisions with different subjects and multiple trials. Collecting this data wass essential to understanding the human modelling and we had to use the optitrack system in the lab to collect the data.
+We wanted our data collection to be hollistic so that it would provide us with a good overview of how humans navigated around obstacles. Thats why we did 6 different collisions with different subjects and multiple trials. Collecting this data was essential to understanding the human modelling and we had to use the optitrack system in the lab to collect the data.
+
+### add videos and pictures^^^
 
 ## How People Move
 Based on primliminary analysis with 20 video takes in the Motion Capture room of 2 people moving. Human motion is dynamic and highly context dependent, however, we wanted tried to infer simple patterns in the motion.
@@ -45,7 +47,13 @@ There are two ways this is extremely useful to us -
 
 To get the re-inforcement alogrithm to work we had to - 
 1. Create a MDP of the Cory room with states, actions, relevant time discounted rewards (we took Dexter's help in formalizing our MDP problem)
-2. Discretization of the data we get so that we could fit it to the MDP and track the movement of the person through the grid. We used several techniques such as moving averages to get a much smoother path when transitiong from one state to another so that we could get a realistic file.
+2. Discretization of the data we get so that we could fit it to the MDP and track the movement of the person through the grid. We used several techniques such as moving averages to get a much smoother path when transitiong from one state to another so that we could get a realistic path.
+3. After discretizing our data, and putting it into relavant (state,action) pairs we were able to use the MDP to infer constraints.
+
+Key Facts about the MDP and model:
+1. num_states: 81
+2. Transitions allowed: allow_diagonal_transitions = true; num_actions = 8; up = 1; down = 2; left = 3; right = 4; up_left = 5; down_left = 6; up_right = 7; down_right = 8
+3. Goal and end state got from discretization of the data
 
 ## Trajectory Planning
 
