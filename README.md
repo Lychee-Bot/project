@@ -15,6 +15,7 @@
 4. Create a controller to receive commands from a master algorithm and actuate.
 
 ## Data Collection
+We wanted our data collection to be hollistic so that it would provide us with a good overview of how humans navigated around obstacles. Thats why we did 6 different collisions with different subjects and multiple trials. Collecting this data wass essential to understanding the human modelling and we had to use the optitrack system in the lab to collect the data.
 
 ## How People Move
 Based on primliminary analysis with 10 video takes in the Motion Capture room of 2 people moving. Human motion is dynamic and highly context dependent, however, we wanted tried to infer simple patterns in the motion.
