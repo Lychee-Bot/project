@@ -16,8 +16,6 @@
 11. Team
 12. Resources
 
-
-
 ## Overview:
 
 Autonomous navigation in an environment with humans is challenging but can be highly useful for applications such as food delivery (like our inspiration Kiwi bot) and navigating in homes or offices. Our research project focused on modelling human-human interaction and robotic autonomous navigation among humans.
@@ -25,12 +23,14 @@ Autonomous navigation in an environment with humans is challenging but can be hi
 Navigating among humans is challenging primarily because of the difficulty in predicting human motion and their interactions with others. For an external agent such as a robot that does not know the goal state of the human or other prior context, it is even more challenging to predict human motion, and navigate around them to reach the goal. We aimed to experiment with various approaches and create a prototype to achieve this goal. 
 
 This research project has three main parts: human modeling, path planning and robot control. For modelling the human-human interaction, we analyze the takes we recorded in the Cory motion capture room to infer patterns, and apply the Maximum Likelihood Constraint Inference for Inverse Reinforcement Learning paper to determine constraints in human interaction. We also developed and experimented with an MCMC based approach to predict human motion. 
-For the planning component, we created a constraint optimization based planner. Finally, we developed a controller for the Turtlebot to navigate around obstacles detected by the OptiTrack motion capture system. 
+For the planning component, we created a constraint optimization based path planner. Finally, we developed a controller for the Turtlebot to navigate around obstacles detected by the OptiTrack motion capture system. 
 
 ## Research Goal
 
+To summarize our we have 4 stages that we would like to achieve:
+
 1. Understand how humans interact with static obstacles as well as other humans.
-2. Path plan a trajectory from current state state to goal navigating around static and moving obstacles. 
+2. Path plan a simple trajectory from current state state to goal navigating around static and moving obstacles. 
 3. Model a human’s trajectory and incorporate its behavior into our path planning algorithm.
 4. Create a controller to receive commands from a master algorithm and actuate.
 
@@ -39,7 +39,6 @@ For the planning component, we created a constraint optimization based planner. 
 As it is a research project, an important goal was to experiment with different approaches while making sure to have useful results. At a high level, our project incorporates sensing, planning, actuation and learning. We aimed to modularize our design so we can work on it parallely, while some aspects such as the Turtlebot, was not available in the motion capture room. 
 
 Since the goal is to make a robot navigate to its goal around humans and our research goal was to experiment with methods to model humans, we made design choices to focus more on these novel problems. Choosing the OptiTrack motion capture system to locate agents and obstacles, instead of an on-board camera, allowed us to have a comprehensive localization and mapping system, while allowing us to focus on the research problems.     
-
 
 We decided to use the OptiTrack motion capture system rather than use computer vision to detect humans and other obstacles to get more accurate object positions and  a comprehensive map. Initially, we had used the Turtlebots’ Kinect sensor to detect and avoid obstacles but we quickly realized that it would an ineffective way to address the primary research questions (since it needs to move around to generate the map, account for errors, detect occluded humans). 
 
