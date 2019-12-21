@@ -2,6 +2,13 @@
 
 [Link](https://lychee-bot.github.io/project/)
 
+## Overview:
+
+Our research project focused on modelling human-human interaction and robotic autonomous navigation amongst humans. Autonomous navigation in an environment with humans is challenging but can be highly useful for applications such as food delivery (like our inspiration Kiwi bot) and navigating in homes or offices. 
+
+This research project has three main parts: human modeling, path planning and robot control. For modelling the human-human interaction, we analyze the takes we recorded in the Cory motion capture room to infer patterns, and apply the Maximum Likelihood Constraint Inference for Inverse Reinforcement Learning paper to determine constraints in human interaction. We also developed and experimented with an MCMC based approach to predict human motion. 
+For the planning component, we created a constraint optimization based planner. Finally, we developed a controller for the Turtlebot to navigate around obstacles detected by the OptiTrack motion capture system. 
+
 ## Motivation
 - Navigating in a dynamic urban environment is hard. 
 - Moving around humans is challenging since the motion is non-deterministic and human’s goal is unknown.
