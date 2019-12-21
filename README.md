@@ -126,6 +126,21 @@ We decided to "soften" the set of hard constraints and converted them into a los
 
 ![Image](https://github.com/Lychee-Bot/project/blob/master/Formulation.png)
 
+### Loss Function
+
+As our minimizing objective, the loss function is defined as a function of the distance between human and TurtleBot and their linear speeds. Naturally, there are a few properties the loss function needs to satisfy:
+
+* Monotonically decreasing;
+* Continuous and differentiable, for optimization purpose;
+* "Exploding" (function value quickly approaching infinity) towards zero to avoid collision;
+* "Smoothing out" (function value approaching some constant value) rapidly after some "turning point".
+
+To select the "turning point", we incorporate our human modeling results. The "turning point" represents the distance humans like to keep from one another, a behaviorial characteristic we would like to mimic. This distance is not constant but a function of the two agents' speeds. We infer this information from our human modeling results. For future work, more features can be considered as they influence this distance, such as the directions the agents are heading towards.
+
+![Image](https://github.com/Lychee-Bot/project/blob/master/Loss.png)
+
+We identified the multiplicative inverses of sigmoid functions as potential choices of loss function. A few examples are: 1/tanh, 1/arctan, 1/erf.
+
 ## Actuation
 
 We have thought about two different approaches to achieve our goals. Approach 1 leverages existing turtlebot pacakge, but we soon found out a major drawback that prevent us using approach 1, so we switch to approach 2. In Approach 2, we set up our own master server that compute the path and send commands to our controller based on human modeling constraints.
