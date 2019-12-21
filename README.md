@@ -1,6 +1,6 @@
 # Lychee Bot - Group 36 EE106A Final Project
 
-[Link](https://silentsilencee.github.io/lycheebot/)
+[Link](https://lychee-bot.github.io/project/)
 
 - Navigating in a dynamic urban environment is hard. 
 - Moving around humans is challenging since the motion is non-deterministic and human’s goal is unknown.
