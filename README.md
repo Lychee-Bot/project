@@ -27,14 +27,11 @@ For the planning component, we created a constraint optimization based planner. 
 
 ## Data Collection
 We wanted our data collection to be hollistic so that it would provide us with a good overview of how humans navigated around obstacles. Thats why we did 6 different collisions with different subjects and multiple trials. 
-[Description of our paths](https://github.com/Lychee-Bot/project/blob/master/Project%20Idea.pdf)
+[Description of different paths](https://github.com/Lychee-Bot/project/blob/master/Project%20Idea.pdf)
 
-Collecting this data was essential to understanding the human modelling and we had to use the optitrack system in the lab to collect the data.
-
-There were several challenges with data collection though the primary ones being:
+Collecting this data was essential in the human modelling and to accomplish this we used the optitrack system. There were several challenges with data collection though the primary ones being:
 1. We had to learn how to create rigid bodies and add them to the optitrack system
 2. Formatting and null values of the data - the data provided was extremely poorly formatted and to automate graph generations we had to build a pipeline to clean (remove null values or fill wherever possible!)
-
 
 ### add videos and pictures^^^
 
@@ -59,15 +56,16 @@ We used this paper and Dexter's repository to identify constraints for moving hu
 
 In the input example we used, when two humans start by facing each other, and move across to the other side, they are close to each other towards the middle of the room. The other human's position near the potential head on collision time is a constraint that we want this IRL constraint inference model to identify. 
 
-There are two ways this is extremely useful to us -
-1. It allos us to infer static obstacles such as puddles or broken glass on the floor that a robot may not be able to detect. By observing the humans movement, we could potentially detect these constraints while path planning.
-2. Robots have limited range of vision and may not be able to detect constraints faw away. By looking at the movement of the human and sudden changes in its path (similar to when two humans are having a head on collison), can allow it to potentially infer another moving obstacle that is coming towards it.
+There are two ways in which constraints inference is extremely useful to us -
+1. It allows us to infer static obstacles such as puddles or broken glass on the floor that a robot may not be able to detect. By observing the human's movement, we could potentially detect these constraints while path planning.
+2. Robots have limited range of vision and may not be able to detect constraints far away. By looking at the movement of the human and sudden changes in its path (for example when two humans are having a head on collison), can allow us to potentially detect the other moving obstacle.
 
 To get the re-inforcement alogrithm to work we had to - 
 1. Create a MDP of the Cory room with states, actions, relevant time discounted rewards (we took Dexter's help in formalizing our MDP problem)
 2. Discretization of the data we get so that we could fit it to the MDP and track the movement of the person through the grid. We used several techniques such as moving averages to get a much smoother path when transitiong from one state to another so that we could get a realistic path.This would also make our path generation more robust to optitrack errors!
-3. After discretizing our data, and putting it into relevant (state,action) pairs we were able to use the MDP to infer constraints.
-4. To generate (state, action) pairs we had to create an automated script that given the layout of an MDP and list of states, it would generate the corresponding actions.
+3. To generate (state, action) pairs we had to write a script that given the layout of an MDP and a list of states, it would generate the corresponding actions.
+4. After discretizing our data, and putting the it into relevant (state,action) pairs we were able to use the MDP to infer constraints.
+
 
 Key Facts about the MDP and model:
 1. num_states: 81
