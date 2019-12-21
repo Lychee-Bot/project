@@ -17,6 +17,11 @@
 ## Data Collection
 
 ## How People Move
+Based on primliminary analysis with 10 video takes in the Motion Capture room of 2 people moving. Human motion is dynamic and highly context dependent, however, we wanted tried to infer simple patterns in the motion.
+Here are a few observations from the data:
+- Only one person tends to move away from the other when there is a head-on collision. 
+- When moving at higher speeds the movement away from the person is closer to the time of collision but the deviation is much higher. 
+- People prefer maintaining a longer backward distance than a sideway distance when walking next to people.
 
 ## Key Insights
 
