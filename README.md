@@ -23,13 +23,15 @@ Here are a few observations from the data:
 - When moving at higher speeds the movement away from the person is closer to the time of collision but the deviation is much higher. 
 - People prefer maintaining a longer backward distance than a sideway distance when walking next to people.
 
-![Image](https://github.com/Lychee-Bot/project/blob/master/img1.png)
--This image shows how the horizontal distance between two people changed as the collison was about to occur. You can clearly see how the horizontal distance in mantained until the time of the collision until both the participants turn away from each other drastically. 
-- You can also notice how there was some hesitance on who was going to move out of whose way at around 1.3 seconds, but ultimately they deviated away from each other before the collision which occured at 1.6 seconds as seen in the graph below.
-
-![Image](https://github.com/Lychee-Bot/project/blob/master/img2.png)
-
 ## Key Insights
+
+
+## Human Model
+
+We read various papers on human motion modelling and we experimented with the approach that our mentor Dexter Scobee had described in the paper [Maximum Likelihood Constraint Inference for Inverse Reinforcement Learning (D.Scobee, S. Shastry)](https://arxiv.org/abs/1909.05477).  This paper reformulates the Inverse Reinforcement Learning problem to describe the observed behavior with a simple reward and a set of hard constraints. 
+We used this paper and Dexter's repository to identify constraints for moving humans. 
+
+In the input example we used, when two humans start by facing each other, and move across to the other side, they are close to each other towards the middle of the room. The other human's position near the potential head on collision time is a constraint that we want this IRL constraint inference model to identify. 
 
 
 ### Header 3
