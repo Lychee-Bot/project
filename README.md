@@ -124,8 +124,10 @@ We test our approach first by running ```rosrun map_server map_saver``` to creat
 4. Make Kiwi bot autonomous, then start our own self-driving delivery service :)
 
 ## Team
+Mentors: Dextor Scobee, David McPherson
 
-1. Nmae - Bio - what you did in the project
+Name - Bio - what you did in the project - Favorite robot
+1. Ganeshkumar Ashokavardhanan: Worked on human modelling, data analysis and the initial Turtlebot ROS controller. EECS & Business '21. Favorite robot: [Spot](https://www.bostondynamics.com/spot)
 2.
 3.
 4.
