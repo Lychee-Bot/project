@@ -139,9 +139,7 @@ Before we could begun the localization, we had to
 1. stick markers to the object we want to track on. 
 2. group the markers together as "rigid body." 
 
-Setting up the rigid bodies, allows the optitrack system to automatically broadcast the location of the objects to the network.
-
-We planned to use the Ros Computer in Cory 337 lab to receive location data from Optitrack system, but it took an unexpectedly long time for us to figure out. We went through lots of online documentations, official videos, and finally found out that we could use the ```mocap_optitrack``` pacakge to receive the data.
+Setting up the rigid bodies, allows the optitrack system to automatically broadcast the location of the objects to the network. We used the ```mocap_optitrack``` pacakge to receive the data.
 
 ## Challenges
 1. Turtlebot access in mocap room only three days before!!! This hindered us from implementing the design that we had orginally forseen at the beginning of the project. Primarily not being able to connect the optimized path planning to the  bots.
