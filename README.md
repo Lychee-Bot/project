@@ -43,6 +43,10 @@ In the input example we used, when two humans start by facing each other, and mo
 ## Challenges
 
 ## Future Work
+1. Research in smoothing the path (move in curves)
+2. Perform online multi-human motion prediction and add to Turtlebot.
+3. Add Computer Vision based planner. Test it on Berkeley Campus. 
+4. Make Kiwi bot autonomous, then start our own self-driving delivery service :)
 
 
 ### Header 3
