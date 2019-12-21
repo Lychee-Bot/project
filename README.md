@@ -6,15 +6,14 @@
 1. Overview and motivation
 2. Research Goals
 3. Design
-4. Data Collection
-5. Analysis of human motion
-6. Human Model
+4. Optitrack System
+5. Data Collection
+6. Analysis of human motion
 7. Trajectory Planning
 8. Actuation
-9. Challenges
-10. Future Work
+9. Challenges and Feature Work
+10. Reference
 11. Team
-12. Resources
 
 ## Overview and motivation:
 
@@ -205,7 +204,9 @@ We search online but found out that no one had implemented this kind of controll
 
 ## Reference
 [Project code](https://github.com/ganeshkumar5699/106a-robotics)
+
 [Learn Turtlebot and ROS](https://github.com/markwsilliman/turtlebot/)
+
 [Optitrack System](https://optitrack.com/)
 
 ## Team 
@@ -218,4 +219,4 @@ Name - Bio - what you did in the project - Favorite robot
 4. Yibin Li: working most on the turtlebot controlleron and localization. EECS'21
 5. Louie Mcconnell
 
-Mentors: [Dextor Scobee](https://www.linkedin.com/in/dexterscobee/), David McPherson
+Mentors: [Dextor Scobee](https://www.linkedin.com/in/dexterscobee/), [David McPherson](https://www.linkedin.com/in/david-mcpherson-4bb96595/)
