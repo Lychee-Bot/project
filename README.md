@@ -23,7 +23,12 @@ Here are a few observations from the data:
 - When moving at higher speeds the movement away from the person is closer to the time of collision but the deviation is much higher. 
 - People prefer maintaining a longer backward distance than a sideway distance when walking next to people.
 
-## Key Insights
+![Image](https://github.com/Lychee-Bot/project/blob/master/img1.png)
+This image shows how the horizontal distance between two people changed as the collison was about to occur. You can clearly see how the horizontal distance in mantained until the time of the collision until both the participants turn away from each other drastically. 	-This image shows how the horizontal distance between two people changed as the collison was about to occur. You can clearly see how the horizontal distance in mantained until the time of the collision until both the participants turn away from each other drastically. 
+- You can also notice how there was some hesitance on who was going to move out of whose way at around 1.3 seconds, but ultimately they deviated away from each other before the collision which occured at 1.6 seconds as seen in the graph below.
+
+
+![Image](https://github.com/Lychee-Bot/project/blob/master/img2.png)	![Image](https://github.com/Lychee-Bot/project/blob/master/img2.png)
 
 
 ## Human Model
