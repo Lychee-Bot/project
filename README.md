@@ -2,6 +2,7 @@
 
 [Link](https://lychee-bot.github.io/project/)
 
+## Motivation
 - Navigating in a dynamic urban environment is hard. 
 - Moving around humans is challenging since the motion is non-deterministic and human’s goal is unknown.
 - Goal: Research and experiment with methods to infer human motion behavior and navigate around humans. 
