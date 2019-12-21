@@ -40,7 +40,6 @@ As it is a research project, an important goal was to experiment with different 
 
 Since the goal is to make a robot navigate to its goal around humans and our research goal was to experiment with methods to model humans, we made design choices to focus more on these novel problems. Choosing the OptiTrack motion capture system to locate agents and obstacles, instead of an on-board camera, allowed us to have a comprehensive localization and mapping system, while allowing us to focus on the research problems.     
 
-
 We decided to use the OptiTrack motion capture system rather than use computer vision to detect humans and other obstacles to get more accurate object positions and  a comprehensive map. Initially, we had used the Turtlebots’ Kinect sensor to detect and avoid obstacles but we quickly realized that it would an ineffective way to address the primary research questions (since it needs to move around to generate the map, account for errors, detect occluded humans). 
 
 ## Data Collection
