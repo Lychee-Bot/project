@@ -39,6 +39,14 @@ We used this paper and Dexter's repository to identify constraints for moving hu
 
 In the input example we used, when two humans start by facing each other, and move across to the other side, they are close to each other towards the middle of the room. The other human's position near the potential head on collision time is a constraint that we want this IRL constraint inference model to identify. 
 
+There are two ways this is extremely useful to us -
+1. It allos us to infer static obstacles such as puddles or broken glass on the floor that a robot may not be able to detect. By observing the humans movement, we could potentially detect these constraints while path planning.
+2. Robots have limited range of vision and may not be able to detect constraints faw away. By looking at the movement of the human and sudden changes in its path (similar to when two humans are having a head on collison), can allow it to potentially infer another moving obstacle that is coming towards it.
+
+To get the re-inforcement alogrithm to work we had to - 
+1. Create a MDP of the Cory room with states, actions, relevant time discounted rewards (we took Dexter's help in formalizing our MDP problem)
+2. Discretization of the data we get so that we could fit it to the MDP and track the movement of the person through the grid. We used several techniques such as moving averages to get a much smoother path when transitiong from one state to another so that we could get a realistic file.
+
 ## Trajectory Planning
 
 
