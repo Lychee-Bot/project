@@ -1,18 +1,26 @@
-## Welcome to GitHub Pages
+# Lychee Bot - Group 36 EE106A Final Project
 
-You can use the [editor on GitHub](https://github.com/Lychee-Bot/project/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+[Link](https://silentsilencee.github.io/lycheebot/)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+- Navigating in a dynamic urban environment is hard. 
+- Moving around humans is challenging since the motion is non-deterministic and human’s goal is unknown.
+- Goal: Research and experiment with methods to infer human motion behavior and navigate around humans. 
+- Real-time motion planning around humans: active research area.
 
-### Markdown
+## Research Goal
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+1. Understand how humans interact with static obstacles as well as other humans.
+2. Path plan a trajectory from current state state to goal navigating around static and moving obstacles. 
+3. Model a human’s trajectory and incorporate its behavior into our path planning algorithm.
+4. Create a controller to receive commands from a master algorithm and actuate.
 
-```markdown
-Syntax highlighted code block
+## Data Collection
 
-# Header 1
-## Header 2
+## How People Move
+
+## Key Insights
+
+
 ### Header 3
 
 - Bulleted
@@ -22,6 +30,8 @@ Syntax highlighted code block
 2. List
 
 **Bold** and _Italic_ and `Code` text
+
+[Link](url) and ![Image](src)
 
 [Link](url) and ![Image](src)
 ```
