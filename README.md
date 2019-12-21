@@ -43,7 +43,8 @@ Collecting this data was essential in the human modelling and to accomplish this
 
 ### add videos and pictures^^^
 
-## How People Move
+## Analysis of human motion
+
 Based on primliminary analysis with 20 video takes in the Motion Capture room of 2 people moving. Human motion is dynamic and highly context dependent, however, we wanted tried to infer simple patterns in the motion.
 Here are a few observations from the data:
 - Only one person tends to move away from the other when there is a head-on collision. 
@@ -54,6 +55,7 @@ Here are a few observations from the data:
 -This image shows how the horizontal distance between two people changed as the collison was about to occur. You can clearly see how the horizontal distance in mantained until the time of the collision until both the participants turn away from each other drastically. 
 - You can also notice how there was some hesitance on who was going to move out of whose way at around 1.3 seconds, but ultimately they deviated away from each other before the collision which occured at 1.8 seconds as seen in the graph below.
 
+This analysis also helped us calculate useful metrics across the samples: the median minimum distance between people is: 0.469 m, standard deviation: 0.195. The median minimum distance is used in our current path planning algorithm as a hard constraint. 
 
 ![Image](https://github.com/Lychee-Bot/project/blob/master/img2.png)	
 
