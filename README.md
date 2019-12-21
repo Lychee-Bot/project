@@ -92,7 +92,7 @@ Key Facts about the MDP and model:
 
 ## Actuation
 
-We have thought about two differnt approaches to achieve our goals. Approach 1 leverages existing turtlebot pacakge, but we soon found out a major drawback that prevent us using approach 1, so we switch to approach 2. In Approach 2, we set up our own master server that compute the path based on human modeling constraints.
+We have thought about two differnt approaches to achieve our goals. Approach 1 leverages existing turtlebot pacakge, but we soon found out a major drawback that prevent us using approach 1, so we switch to approach 2. In Approach 2, we set up our own master server that compute the path and send commands to our controller based on human modeling constraints.
 
 ### Approach 1: Map Update
 The first time we thought about "turtelbot avoids pedestrain and goes to a specific location on map" problem, we were confident that there must be online solutions, since the turtlebot is very popular. Indeed, there is one path planning package called ```actionlib``` which takes a stacic map and a goal (inspired by [Learn Turtlebot and ROS](https://github.com/markwsilliman/turtlebot/)). It has a built-in function that will compute the path for turtlebot, and moves the turtlebot to desired location. However, this method doesn't do well in our goal: 
@@ -107,7 +107,7 @@ We then come up with a modifeid solution to use ```actionlib``` package: conside
 3. Turtlebot moves based on current path command.
 4. Repeat step 2 and step 3 untill turtlebot reaches goal location.
 
-We test our approach first by running ```rosrun map_server map_saver``` to create a layour map (pgm image), and then modify the map with image editing tools to add walls (black region in the map). 
+We test our approach first by running ```rosrun map_server map_saver``` to create a layour map (pgm image), and then modify the map with image editing tools to add walls (black region in the map). Second, we run the ```actionlib``` code that go from anywhere to a fixed location on both map. As we expected **picture here**, in the left map the turtlebot could move freely, and in the right map turtlebot will stop (no path could be found because of the wall). Our modification of the map works! However, we soon realize a **critical drawback** of this approach: the ```actionlib``` server will send commands all at once! Even we could update the map, the ```actionlib``` server itself will not update the path! Searching online about solution extensively, we soon realize that our approach works best with Lidar for SLAM algorithm. Since we don't need to use lidars, we give up this approach approach.
 
 
 ## Challenges
