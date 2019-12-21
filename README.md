@@ -59,7 +59,7 @@ Key Facts about the MDP and model:
 
 
 ## Challenges
-1. Turtlebot access in mocap room only three days before.
+1. Turtlebot access in mocap room only three days before!!! This hindered us from implementing the design that we had orginally forseen at the beginning of the project. Primarily not being able to connect the optimized path planning to the  bots.
 2. Existing path planning package doesn’t work with Optitrack system
 3. Optitrack and turtlebot Odometry system has two different coordinates
 4. ROS_MASTER_URI conflict between turtlebot and optitrack
@@ -71,6 +71,15 @@ Key Facts about the MDP and model:
 3. Add Computer Vision based planner. Test it on Berkeley Campus. 
 4. Make Kiwi bot autonomous, then start our own self-driving delivery service :)
 
+## Team
+
+1. Nmae - Bio - what you did in the project
+2.
+3.
+4.
+5.
+
+## Github Repo with Codebase and Jupyter Notebooks
 
 ### Header 3
 
