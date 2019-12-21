@@ -95,6 +95,10 @@ Key Facts about the MDP and model:
 4. Max path length: 15
 5. Discount factor 0.9
 
+Figure: 
+[Inferred Constraints] (https://github.com/Lychee-Bot/project/blob/master/Constraint%20Inference%20Output.png)
+The yellow box on the left edge represents the starting position and the one on the right edge is the human's goal. There is another person moving head-on (whose position data is not used). The algorithm correctly figures out that there is a constraint towards the middle (when both people were on track to collide). 
+
 ## Trajectory Planning
 
 ### Initial Attempts
