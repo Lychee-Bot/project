@@ -109,6 +109,12 @@ We then come up with a modifeid solution to use ```actionlib``` package: conside
 
 We test our approach first by running ```rosrun map_server map_saver``` to create a layour map (pgm image), and then modify the map with image editing tools to add walls (black region in the map). Second, we run the ```actionlib``` code that go from anywhere to a fixed location on both map. As we expected **picture here**, in the left map the turtlebot could move freely, and in the right map turtlebot will stop (no path could be found because of the wall). Our modification of the map works! However, we soon realize a **critical drawback** of this approach: the ```actionlib``` server will send commands all at once! Even we could update the map, the ```actionlib``` server itself will not update the path! Searching online about solution extensively, we soon realize that our approach works best with Lidar for SLAM algorithm. Since we don't need to use lidars, we give up this approach approach.
 
+## Optitrack System
+The [Optitrack System](https://optitrack.com/) [pictures of the optitrack room] is an advanced motion capture system. It utilizes infrad camera to localize the opjects by tracking the special IR-reflective markers. It is a high-accuracy and low-latency system that fits best for our project needs. We could read, observe, and analyze the data from the system convinently.
+
+Before the system could read the localtion of object, we stick several special markers to the object we want to track on. Then, we group markes together by different objects as "rigid body." After setting up the rigid bodies, the optitrack system will automatically broadcast the location of the rigid bodies to the network.
+
+We plan to use the Ros Computer in Cory 337 lab to receive location data from Optitrack system, but it actually takes an unexpected long time for us to figure out, as we the system initially doesn't set up quite right. We went through lots of online documentations, official videos, and finally find that we could use the ```mocap_optitrack``` pacakge to receive the data.
 
 ## Challenges
 1. Turtlebot access in mocap room only three days before!!! This hindered us from implementing the design that we had orginally forseen at the beginning of the project. Primarily not being able to connect the optimized path planning to the  bots.
