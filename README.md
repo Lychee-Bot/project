@@ -23,12 +23,15 @@ Autonomous navigation in an environment with humans is challenging but can be hi
 Navigating among humans is challenging primarily because of the difficulty in predicting human motion and their interactions with others. For an external agent such as a robot that does not know the goal state of the human or other prior context, it is even more challenging to predict human motion, and navigate around them to reach the goal. We aimed to experiment with various approaches and create a prototype to achieve this goal. 
 
 This research project has three main parts: human modeling, path planning and robot control. For modelling the human-human interaction, we analyze the takes we recorded in the Cory motion capture room to infer patterns, and apply the Maximum Likelihood Constraint Inference for Inverse Reinforcement Learning paper to determine constraints in human interaction. We also developed and experimented with an MCMC based approach to predict human motion. 
+
 For the planning component, we created a constraint optimization based planner. Finally, we developed a controller for the Turtlebot to navigate around obstacles detected by the OptiTrack motion capture system. The controller is modular and can take in commands from any path planner. 
 
 ## Research Goals:
 
+To summarize our we have 4 stages that we would like to achieve:
+
 1. Understand how humans interact with static obstacles as well as other humans.
-2. Path plan a trajectory from current state state to goal navigating around static and moving obstacles. 
+2. Path plan a simple trajectory from current state state to goal navigating around static and moving obstacles. 
 3. Model a human’s trajectory and incorporate its behavior into our path planning algorithm.
 4. Create a controller to receive commands from a master algorithm and actuate.
 
