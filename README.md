@@ -62,7 +62,7 @@ Here are a few observations from the data:
 - People prefer maintaining a longer backward distance than a sideway distance when walking next to people.
 
 ![Image](https://github.com/Lychee-Bot/project/blob/master/img1.png)	
--This image shows how the horizontal distance between two people changed as the collison was about to occur. You can clearly see how the horizontal distance in mantained until the time of the collision where both the participants turn away from each other. 
+- This image shows how the horizontal distance between two people changed as the collison was about to occur. You can clearly see how the horizontal distance in mantained until the time of the collision where both the participants turn away from each other. 
 - You can also notice how there was some hesitance on who was going to move out of whose way at around 1.3 seconds, but ultimately they deviate away from each other before the collision which occured at 1.8 seconds as seen in the graph below.
 
 This analysis also helped us calculate useful metrics across the samples: the median minimum distance between people is: 0.469 m, standard deviation: 0.195. The median minimum distance is used in our current path planning algorithm as a hard constraint. 
