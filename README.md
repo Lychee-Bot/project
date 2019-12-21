@@ -202,6 +202,6 @@ Mentors: Dextor Scobee, David McPherson
 Name - Bio - what you did in the project - Favorite robot
 1. Ganeshkumar Ashokavardhanan: Worked on human modelling, data analysis and the initial Turtlebot ROS controller. EECS & Business '21. Favorite robot: [Spot](https://www.bostondynamics.com/spot)
 2. Shivam Shorewala: Worked on the human modelling side of things, ranging from data collection, to creating MDPs to speed analysis. EECS and Business 2021. Favourite robot [Mr.Robot](https://www.usanetwork.com/mrrobot)
-3.
+3. Zekai Fan: Worked on trajectory planning. Also worked on collecting motion capture data, data cleaning, and human modelling using Markov-chain model. IEOR and Data Science 2020. Favorite robot: [Eve](https://www.imdb.com/title/tt0910970/characters/nm2264184)
 4.
 5.
