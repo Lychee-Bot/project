@@ -109,6 +109,21 @@ In our update loop, an initial trajectory-planning problem is solved with the re
 
 ### Problem Formulation
 
+Our setting has many limitations, including:
+
+* TurtleBots are nonholonomic;
+* Angular and linear speeds cannot exceed some limits;
+* Control instructions are discrete.
+
+We decided to formulate the trajectory-planning problem as a constrained optimization problem. We made the following assumptions:
+
+* TurtleBots have infinite angular and linear acceleration;
+* Actual trajectory approximates planned trajectory well: there is little wheel sliding or slipping.
+
+Initially, we included the minimum distance the TurtleBot has to keep away from humans at each step as a set of inequality constraints. We selected the objective as minimizing the total projected time it takes for the TurtleBot to reach its goal. However, we found this set of constraints drastically diminishing the space in which a solution can be found. Minimizing the total time is a hard goal, too, as a small decrease in total time may change the trajectory all together because of our moving obstacle.
+
+We decided to "soften" the set of hard constraints and converted them into a loss function, which becomes our minimizing objective. Since total time is excluded as an output of the optimization problem, it has to be specified for the problem. Some heuristic can be used to estimate it. If a trajectory cannot be found within the desired total time, the optimization program needs to be rerun with a slightly longer total time as input. Repeat until a solution is found. Because of the inaccuracies when executing a curving motion, this type of control is dropped from consideration, so the TurtleBot can be instructed either to move in a straight line or to turn about its own axis, but not both. We formulated the problem as follows:
+
 ![Image](https://github.com/Lychee-Bot/project/blob/master/Formulation.png)
 
 ## Actuation
