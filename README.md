@@ -97,11 +97,17 @@ Key Facts about the MDP and model:
 
 ## Trajectory Planning
 
+### Initial Attempts
+
+### Update Loop
+
 To accommodate for potential changes in human motion prediction, trajectories are planned by solving an optimization problem as prediction updates.
 
 ![Image](https://github.com/Lychee-Bot/project/blob/master/Loop.jpg)
 
 In our update loop, an initial trajectory-planning problem is solved with the result of a first attempt to predict human trajectory. The program then enters a feedback loop where whether goal is reached (within some acceptable margin) is checked. At the beginning of each time interval, an update for human trajectory prediction is retrieved and checked against the previous prediction. If the previous one is deemed as off compared to the updated one, the trajectory planned and currently executing will be deemed invalid. The trajectory-planning problem is solved again using the TurtleBot's current location as the starting point and the updated human trajectory prediction as part of the constraints. If the maximum time allowed to reach goal is exceeded, the program will instruct the TurtleBot to halt at its current location and return a failure flag, so that manual control can be used to navigate.
+
+### Problem Formulation
 
 ## Actuation
 
