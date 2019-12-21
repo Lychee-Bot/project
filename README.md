@@ -109,6 +109,8 @@ In our update loop, an initial trajectory-planning problem is solved with the re
 
 ### Problem Formulation
 
+![Image](https://github.com/Lychee-Bot/project/blob/master/Formulation.png)
+
 ## Actuation
 
 We have thought about two different approaches to achieve our goals. Approach 1 leverages existing turtlebot pacakge, but we soon found out a major drawback that prevent us using approach 1, so we switch to approach 2. In Approach 2, we set up our own master server that compute the path and send commands to our controller based on human modeling constraints.
