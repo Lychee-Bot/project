@@ -25,6 +25,11 @@ For the planning component, we created a constraint optimization based planner. 
 ## Data Collection
 We wanted our data collection to be hollistic so that it would provide us with a good overview of how humans navigated around obstacles. Thats why we did 6 different collisions with different subjects and multiple trials. Collecting this data was essential to understanding the human modelling and we had to use the optitrack system in the lab to collect the data.
 
+There were several challenges with data collection though the primary ones being:
+1. We had to learn how to create rigid bodies and add them to the optitrack system
+2. Formatting and null values of the data - the data provided was extremely poorly formatted and to automate graph generations we had to build a pipeline to clean (remove null values or fill wherever possible!)
+
+
 ### add videos and pictures^^^
 
 ## How People Move
