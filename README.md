@@ -39,9 +39,18 @@ To summarize our we have 4 stages that we would like to achieve:
 
 As it is a research project, an important goal was to experiment with different approaches while making sure to have useful results. At a high level, our project incorporates sensing, planning, actuation and learning. We aimed to modularize our design so we can work on it parallely, while some aspects such as the Turtlebot, was not available in the motion capture room. 
 
-Since the goal is to make a robot navigate to its goal around humans and our research goal was to experiment with methods to model humans, we made design choices to focus more on these novel problems. Choosing the OptiTrack motion capture system to locate agents and obstacles, instead of an on-board camera, allowed us to have a comprehensive localization and mapping system, while allowing us to focus on the research problems.     
+Since the goal is to make a robot navigate to its goal around humans and our research goal was to experiment with methods to model humans, we made design choices to focus more on these novel problems. Choosing the OptiTrack motion capture system (see next section for detailed explnation of the optitrack system) to locate agents and obstacles, instead of an on-board camera, allowed us to have a comprehensive localization and mapping system, while allowing us to focus on the research problems.     
 
 We decided to use the OptiTrack motion capture system rather than use computer vision to detect humans and other obstacles to get more accurate object positions and  a comprehensive map. Initially, we had used the Turtlebots’ Kinect sensor to detect and avoid obstacles but we quickly realized that it would an ineffective way to address the primary research questions (since it needs to move around to generate the map, account for errors, detect occluded humans). 
+
+## Optitrack Motion Capture System
+The [Optitrack System](https://optitrack.com/) [**pictures of the optitrack room**] is an advanced motion capture system. It utilizes an infrared camera to localize the objects by tracking the special IR-reflective markers. It is a high-accuracy and low-latency system that fits our project's needs. 
+
+Before we could begun the localization, we had to 
+1. stick markers to the object we want to track on. 
+2. group the markers together as "rigid body." 
+
+Setting up the rigid bodies, allows the optitrack system to automatically broadcast the location of the objects to the network. We used the ```mocap_optitrack``` pacakge to receive the data.
 
 ## Data Collection
 We wanted our data collection to be holistic so that it would provide us with a good overview of how humans navigated around obstacles. Thats why we did 6 different collisions with different subjects and multiple trials. 
@@ -50,8 +59,6 @@ We wanted our data collection to be holistic so that it would provide us with a 
 Collecting this data was essential in the human modelling and to accomplish this we used the optitrack system. There were several challenges with data collection though the primary ones being:
 1. We had to learn how to create rigid bodies (of the caps that were used to track the particpants) and add them to the optitrack system.
 2. Formatting and null values of the data - the data provided was extremely poorly formatted and to automate graph generations we had to build a pipeline to clean (remove null values or fill wherever possible!)
-
-### add videos and pictures^^^
 
 ## Analysis of human motion
 
@@ -69,7 +76,7 @@ This analysis also helped us calculate useful metrics across the samples: the me
 
 ![Image](https://github.com/Lychee-Bot/project/blob/master/img2.png)	
 
-## Human Model
+### Human Model
 
 We read various papers on human motion modelling and we experimented with the approach that our mentor Dexter Scobee had described in the paper [Maximum Likelihood Constraint Inference for Inverse Reinforcement Learning (D.Scobee, S. Shastry)](https://arxiv.org/abs/1909.05477).  This paper reformulates the Inverse Reinforcement Learning problem to describe the observed behavior with a simple reward and a set of hard constraints. 
 We used this paper and Dexter's repository to identify constraints for moving humans. 
@@ -175,42 +182,40 @@ Our second idea comes from looking into the ```actionlib``` package. This packag
 3. controller modules.
 Luckily, we could use the optitrack system as a localization method, our research on  human modeling and prediction as a mathod for path planning, and use [Learn Turtlebot and ROS](https://github.com/markwsilliman/turtlebot/) moving function as a starting point for the controller. [**insert image here**]
 
-## Optitrack System
-The [Optitrack System](https://optitrack.com/) [pictures of the optitrack room] is an advanced motion capture system. It utilizes an infrared camera to localize the objects by tracking the special IR-reflective markers. It is a high-accuracy and low-latency system that fits our project's needs. 
-
-Before we could begun the localization, we had to 
-1. stick markers to the object we want to track on. 
-2. group the markers together as "rigid body." 
-
-Setting up the rigid bodies, allows the optitrack system to automatically broadcast the location of the objects to the network. We used the ```mocap_optitrack``` pacakge to receive the data.
-
 ### Localization
 We leverage the Optitrack system to do the localization for TurtleBot and pedestrian. The TurtleBot will have markers on the top, and pedestrain will wear a cap with markers attach to it. Once the system finds TurtleBot and the cap (pedestrain), it automatically broadcasts the location data to the same network. Note that right now TurtleBot, instead of the Ros Computer,  receives the localization data so the previous ```mocap_optitrack``` package doesn't work on the TurtleBot. We searched online and found a nice ROS package for receiving such message on TurtleBot: ```vrpn_client```. Leveraging ```vrpn_client``` package we were able to receive the location message by simply subscribing to ```/vrpn_client_node/turtlebot/pose``` and ```/vrpn_client_node/cap/pose```. The returned message is a [PoseStamped](http://docs.ros.org/melodic/api/geometry_msgs/html/msg/PoseStamped.html) type of message. [**insert image here**]
 
-## Controller
+### Controller
 Theoretically, the Turtlebot controller will receive path command from master server and execute the command. We simplified command to three different modules: go straight, turn, and curve left/right. 
 
 We search online but found out that no one had implemented this kind of controller yet. Therefore, we build our own. Each module has its own implementation on two or three control variables. For example, in the go straight function we can control both the distance and speed turtlebot needs to travel as well as the time and speed. This gives great flexibility on what we want Turtlebot to do. We have tested this controller in the real world and it works perfectly.
 
-## Challenges
+## Challenges and Feature Work
 1. Turtlebot access in mocap room only three days before!!! This hindered us from implementing the design that we had orginally forseen at the beginning of the project. Primarily not being able to connect the optimized path planning to the  bots.
 2. Existing path planning package doesn’t work with Optitrack system
 3. Optitrack and turtlebot Odometry system has two different coordinates
 4. ROS_MASTER_URI conflict between turtlebot and optitrack
 5. No way besides SLAM to update the map and do path planning efficiently
 
-## Future Work
+### Future Work
 1. Research in smoothing the path (move in curves)
 2. Perform online multi-human motion prediction and add to Turtlebot.
 3. Add Computer Vision based planner. Test it on Berkeley Campus. 
 4. Make Kiwi bot autonomous, then start our own self-driving delivery service :)
 
-## Team
+## Reference
+[Project code](https://github.com/ganeshkumar5699/106a-robotics)
+[Learn Turtlebot and ROS](https://github.com/markwsilliman/turtlebot/)
+[Optitrack System](https://optitrack.com/)
+
+## Team 
 Mentors: Dextor Scobee, David McPherson
 
 Name - Bio - what you did in the project - Favorite robot
 1. Ganeshkumar Ashokavardhanan: Worked on human modelling, motion data analysis and the initial TurtleBot ROS controller. EECS & Business 2021. Favorite robot: [Spot](https://www.bostondynamics.com/spot)
 2. Shivam Shorewala: Worked on the human modelling side of things, ranging from data collection, to creating MDPs to speed analysis. EECS and Business 2021. Favourite robot [Mr.Robot](https://www.usanetwork.com/mrrobot)
 3. Zekai Fan: Worked on trajectory planning. Also worked on collecting motion capture data, data cleaning, and human modelling using Markov-chain model. IEOR and Data Science 2020. Favorite robot: [Eve](https://www.imdb.com/title/tt0910970/characters/nm2264184)
-4.
-5.
+4. Yibin Li: working most on the turtlebot controlleron and localization. EECS'21
+5. Louie Mcconnell
+
+Mentors: [Dextor Scobee](https://www.linkedin.com/in/dexterscobee/), David McPherson
