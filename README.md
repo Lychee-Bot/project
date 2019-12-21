@@ -19,7 +19,7 @@
 We wanted our data collection to be hollistic so that it would provide us with a good overview of how humans navigated around obstacles. Thats why we did 6 different collisions with different subjects and multiple trials. Collecting this data wass essential to understanding the human modelling and we had to use the optitrack system in the lab to collect the data.
 
 ## How People Move
-Based on primliminary analysis with 10 video takes in the Motion Capture room of 2 people moving. Human motion is dynamic and highly context dependent, however, we wanted tried to infer simple patterns in the motion.
+Based on primliminary analysis with 20 video takes in the Motion Capture room of 2 people moving. Human motion is dynamic and highly context dependent, however, we wanted tried to infer simple patterns in the motion.
 Here are a few observations from the data:
 - Only one person tends to move away from the other when there is a head-on collision. 
 - When moving at higher speeds the movement away from the person is closer to the time of collision but the deviation is much higher. 
