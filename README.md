@@ -47,7 +47,7 @@ There are two ways this is extremely useful to us -
 
 To get the re-inforcement alogrithm to work we had to - 
 1. Create a MDP of the Cory room with states, actions, relevant time discounted rewards (we took Dexter's help in formalizing our MDP problem)
-2. Discretization of the data we get so that we could fit it to the MDP and track the movement of the person through the grid. We used several techniques such as moving averages to get a much smoother path when transitiong from one state to another so that we could get a realistic path.
+2. Discretization of the data we get so that we could fit it to the MDP and track the movement of the person through the grid. We used several techniques such as moving averages to get a much smoother path when transitiong from one state to another so that we could get a realistic path.This would also make our path generation more robust to optitrack errors!
 3. After discretizing our data, and putting it into relavant (state,action) pairs we were able to use the MDP to infer constraints.
 
 Key Facts about the MDP and model:
