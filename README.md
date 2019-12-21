@@ -41,6 +41,11 @@ In the input example we used, when two humans start by facing each other, and mo
 
 
 ## Challenges
+1. Turtlebot access in mocap room only three days before.
+2. Existing path planning package doesn’t work with Optitrack system
+3. Optitrack and turtlebot Odometry system has two different coordinates
+4. ROS_MASTER_URI conflict between turtlebot and optitrack
+5. No way besides SLAM to update the map and do path planning efficiently
 
 ## Future Work
 1. Research in smoothing the path (move in curves)
