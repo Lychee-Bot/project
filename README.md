@@ -126,14 +126,18 @@ Our second idea comes from looking into the ```actionlib``` package. This packag
 Luckily, we could use the optitrack system as a localization method, our research on  human modeling and prediction as a mathod for path planning, and use [Learn Turtlebot and ROS](https://github.com/markwsilliman/turtlebot/) moving function as a starting point for the controller. [**insert image here**]
 
 ### Localization
-We leverage the Optitrack system to do the localization for turtlebot and pedestrain. Turtlebot will have markers on the top, and pedestrain will wear a cap with markers attach to it. Once the system finds turtlebot and cap (pedestrain), it automatically broadcasts the location data to the same network. Note that right now turtlebot, instead of the Ros Computer, will receive the localization data so the previous ```mocap_optitrack``` package doesn't work on the turtlebot. We search online and find out a nice ros package for receiving such message on turtlebot: ```vrpn_client```. Leveraging ```vrpn_client``` package to receive the location message by simply subscribing to ```/vrpn_client_node/turtlebot/pose``` and ```/vrpn_client_node/cap/pose```. The returned message is a [PoseStamped](http://docs.ros.org/melodic/api/geometry_msgs/html/msg/PoseStamped.html) type of message. [**insert image here**]
+We leverage the Optitrack system to do the localization for TurtleBot and pedestrian. The TurtleBot will have markers on the top, and pedestrain will wear a cap with markers attach to it. Once the system finds TurtleBot and the cap (pedestrain), it automatically broadcasts the location data to the same network. Note that right now TurtleBot, instead of the Ros Computer,  receives the localization data so the previous ```mocap_optitrack``` package doesn't work on the TurtleBot. We searched online and found a nice ROS package for receiving such message on TurtleBot: ```vrpn_client```. Leveraging ```vrpn_client``` package we were able to receive the location message by simply subscribing to ```/vrpn_client_node/turtlebot/pose``` and ```/vrpn_client_node/cap/pose```. The returned message is a [PoseStamped](http://docs.ros.org/melodic/api/geometry_msgs/html/msg/PoseStamped.html) type of message. [**insert image here**]
 
 ## Optitrack System
-The [Optitrack System](https://optitrack.com/) [pictures of the optitrack room] is an advanced motion capture system. It utilizes infrad camera to localize the opjects by tracking the special IR-reflective markers. It is a high-accuracy and low-latency system that fits best for our project needs. We could read, observe, and analyze the data from the system convinently.
+The [Optitrack System](https://optitrack.com/) [pictures of the optitrack room] is an advanced motion capture system. It utilizes an infrared camera to localize the objects by tracking the special IR-reflective markers. It is a high-accuracy and low-latency system that fits our project's needs. 
 
-Before the system could read the localtion of object, we stick several special markers to the object we want to track on. Then, we group markes together by different objects as "rigid body." After setting up the rigid bodies, the optitrack system will automatically broadcast the location of the rigid bodies to the network.
+Before we could begun the localization, we had to 
+1. stick markers to the object we want to track on. 
+2. group the markers together as "rigid body." 
 
-We plan to use the Ros Computer in Cory 337 lab to receive location data from Optitrack system, but it actually takes an unexpected long time for us to figure out, as we the system initially doesn't set up quite right. We went through lots of online documentations, official videos, and finally find that we could use the ```mocap_optitrack``` pacakge to receive the data.
+Setting up the rigid bodies, allows the optitrack system to automatically broadcast the location of the objects to the network.
+
+We planned to use the Ros Computer in Cory 337 lab to receive location data from Optitrack system, but it took an unexpectedly long time for us to figure out. We went through lots of online documentations, official videos, and finally found out that we could use the ```mocap_optitrack``` pacakge to receive the data.
 
 ## Challenges
 1. Turtlebot access in mocap room only three days before!!! This hindered us from implementing the design that we had orginally forseen at the beginning of the project. Primarily not being able to connect the optimized path planning to the  bots.
