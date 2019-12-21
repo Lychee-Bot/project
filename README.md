@@ -22,7 +22,10 @@ Here are a few observations from the data:
 - Only one person tends to move away from the other when there is a head-on collision. 
 - When moving at higher speeds the movement away from the person is closer to the time of collision but the deviation is much higher. 
 - People prefer maintaining a longer backward distance than a sideway distance when walking next to people.
+
 ![Image](https://github.com/Lychee-Bot/project/blob/master/img1.png)
+This image shows how the horizontal distance between two people changed as the collison was about to occur. You can clearly see how the horizontal distance in mantained until the time of the collision until both the participants turn away from each other drastically. 
+
 ![Image](https://github.com/Lychee-Bot/project/blob/master/img2.png)
 
 ## Key Insights
