@@ -16,8 +16,6 @@
 11. Team
 12. Resources
 
-
-
 ## Overview and motivation:
 
 Autonomous navigation in an environment with humans is challenging but can be highly useful for applications such as food delivery (like our inspiration Kiwi bot) and navigating in homes or offices. Our research project focused on modelling human-human interaction and robotic autonomous navigation among humans.
@@ -61,8 +59,8 @@ Here are a few observations from the data:
 - People prefer maintaining a longer backward distance than a sideway distance when walking next to people.
 
 ![Image](https://github.com/Lychee-Bot/project/blob/master/img1.png)	
--This image shows how the horizontal distance between two people changed as the collison was about to occur. You can clearly see how the horizontal distance in mantained until the time of the collision until both the participants turn away from each other drastically. 
-- You can also notice how there was some hesitance on who was going to move out of whose way at around 1.3 seconds, but ultimately they deviated away from each other before the collision which occured at 1.8 seconds as seen in the graph below.
+-This image shows how the horizontal distance between two people changed as the collison was about to occur. You can clearly see how the horizontal distance in mantained until the time of the collision where both the participants turn away from each other. 
+- You can also notice how there was some hesitance on who was going to move out of whose way at around 1.3 seconds, but ultimately they deviate away from each other before the collision which occured at 1.8 seconds as seen in the graph below.
 
 This analysis also helped us calculate useful metrics across the samples: the median minimum distance between people is: 0.469 m, standard deviation: 0.195. The median minimum distance is used in our current path planning algorithm as a hard constraint. 
 
@@ -73,20 +71,19 @@ This analysis also helped us calculate useful metrics across the samples: the me
 We read various papers on human motion modelling and we experimented with the approach that our mentor Dexter Scobee had described in the paper [Maximum Likelihood Constraint Inference for Inverse Reinforcement Learning (D.Scobee, S. Shastry)](https://arxiv.org/abs/1909.05477).  This paper reformulates the Inverse Reinforcement Learning problem to describe the observed behavior with a simple reward and a set of hard constraints. 
 We used this paper and Dexter's repository to identify constraints for moving humans. 
 
-Another approach that we read about what social spheres also known as proxemics. In this area of research the leading school of thought is that humans maintain a relatively fixed set of distances when navigating through urban environments. Even though this set of distances is unique to humans, research has shown a general trend in that these proxemics are usually ellipsoids. This is somewhat consistent with our analysis of how humans move where we found that people tended to maintain a longer vertical distance than a horizaontal one. Ultimately we didnt decide to go down this approach as we didnt have enough data samples, especially un-tainted ones (not from a lab setting) to create such a generalization and it would be extremely complicated to do so. 
+Another approach that we read about was social spheres also known as proxemics. In this area of research the leading school of thought is that humans maintain a relatively fixed set of distances from each other when navigating through urban environments. Even though this set of distances is unique to each human, research has shown that these proxemics are usually ellipsoids. This is somewhat consistent with our analysis where we found that people tend to maintain a longer vertical distance than a horizaontal one from each other. Ultimately we didnt decide to go down this approach as we didnt have enough data samples, especially un-tainted ones (not from a lab setting) to create such a generalization and it would be extremely complex for the given time frame to do so. 
 
 In the input example we used, when two humans start by facing each other, and move across to the other side, they are close to each other towards the middle of the room. The other human's position near the potential head on collision time is a constraint that we want this IRL constraint inference model to identify. 
 
 There are two ways in which constraints inference is extremely useful to us -
 1. It allows us to infer static obstacles such as puddles or broken glass on the floor that a robot may not be able to detect. By observing the human's movement, we could potentially detect these constraints while path planning.
-2. Robots have limited range of vision and may not be able to detect constraints far away. By looking at the movement of the human and sudden changes in its path (for example when two humans are having a head on collison), can allow us to potentially detect the other moving obstacle.
+2. Robots have limited range of vision and may not be able to detect obstacles that are far away. By looking at the movement of the humans and sudden changes in its path (for example when two humans are having a head on collison), can allow the robot to potentially infer other moving obstacles.
 
-To get the re-inforcement alogrithm to work we had to - 
-1. Create a MDP of the Cory room with states, actions, relevant time discounted rewards (we took Dexter's help in formalizing our MDP problem)
-2. Discretization of the data we get so that we could fit it to the MDP and track the movement of the person through the grid. We used several techniques such as moving averages to get a much smoother path when transitiong from one state to another so that we could get a realistic path.This would also make our path generation more robust to optitrack errors!
+To get the IRL algorithm to work we had to - 
+1. Create a MDP of the Cory lab with states, actions, and relevant time discounted rewards (we took Dexter's help in formalizing our MDP problem)
+2. Discretization of the human modelling data so that we could fit it to the MDP and track the movement of the person through the grid. We used several techniques such as moving averages to get a much smoother path when transitiong from one state to another so that we could get a realistic path.This would also make our path generation more robust to optitrack errors!
 3. To generate (state, action) pairs we had to write a script that given the layout of an MDP and a list of states, it would generate the corresponding actions.
 4. After discretizing our data, and putting the it into relevant (state,action) pairs we were able to use the MDP to infer constraints.
-
 
 Key Facts about the MDP and model:
 1. num_states: 81
@@ -101,7 +98,7 @@ Key Facts about the MDP and model:
 
 ## Actuation
 
-We have thought about two differnt approaches to achieve our goals. Approach 1 leverages existing turtlebot pacakge, but we soon found out a major drawback that prevent us using approach 1, so we switch to approach 2. In Approach 2, we set up our own master server that compute the path and send commands to our controller based on human modeling constraints.
+We have thought about two different approaches to achieve our goals. Approach 1 leverages existing turtlebot pacakge, but we soon found out a major drawback that prevent us using approach 1, so we switch to approach 2. In Approach 2, we set up our own master server that compute the path and send commands to our controller based on human modeling constraints.
 
 ### Approach 1: Map Update
 The first time we thought about "turtelbot avoids pedestrain and goes to a specific location on map" problem, we were confident that there must be online solutions, since the turtlebot is very popular. Indeed, there is one path planning package called ```actionlib``` which takes a stacic map and a goal (inspired by [Learn Turtlebot and ROS](https://github.com/markwsilliman/turtlebot/)). It has a built-in function that will compute the path for turtlebot, and moves the turtlebot to desired location. However, this method doesn't do well in our goal: 
